@@ -8,7 +8,7 @@ const getPosts = async (req, res) => {
         const response = await axios.get(`${url}`);
         res.status(200).json(response.data);
     } catch (error) {
-        console.error(error);
+        console.log(error);
         res.status(500).send('Server Error in getUserPosts');
     }
 };

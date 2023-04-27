@@ -19,6 +19,7 @@ const createComment = async (req, res) => {
     try {
         const { postID } = req.params;
         const { id, post_id, name, email, body } = req.body;
+
         if (parseInt(postID) !== post_id) {
             res.status(400).send('postID parameter and post_id field must be the same value');
             return;
@@ -33,7 +34,7 @@ const createComment = async (req, res) => {
         });
         res.status(201).json(commentData);
     } catch (error) {
-        console.error(error);
+        console.log(error);
         res.status(500).send('Server Error in POST request');
     }
 };
